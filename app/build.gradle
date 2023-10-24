@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "switch_manner.clair.jp"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 6
+        versionName "1.5"
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+            storeFile file('./releasekey.keystore43')
+            storePassword 'clairvoyance'
+            keyAlias 'releasekey'
+            keyPassword 'clairvoyance'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/imobileSdkAds.jar')
+}
