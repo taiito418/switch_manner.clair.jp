@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "switch_manner.clair.jp"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 6
         versionName "1.5"
         multiDexEnabled true
