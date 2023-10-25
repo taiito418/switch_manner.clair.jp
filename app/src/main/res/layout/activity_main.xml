@@ -28,6 +28,8 @@
         android:layout_below="@+id/ringerMode"
         android:textColor="#FFFFFF"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:background="#38ACC6"
         android:layout_alignParentStart="true"/>
 
@@ -40,6 +42,8 @@
         android:textColor="#FFFFFF"
         android:layout_below="@+id/silentMode"
         android:layout_alignStart="@+id/normalMode"
+        android:layout_alignLeft="@+id/normalMode"
+        android:layout_alignRight="@+id/normalMode"
         android:layout_marginBottom="39dp"
         android:background="#38ACC6"
         android:layout_alignEnd="@+id/silentMode"/>
@@ -53,6 +57,8 @@
         android:layout_below="@+id/normalMode"
         android:textColor="#FFFFFF"
         android:layout_alignEnd="@+id/normalMode"
+        android:layout_alignLeft="@+id/normalMode"
+        android:layout_alignRight="@+id/normalMode"
         android:background="#38ACC6"
         android:layout_alignStart="@+id/normalMode"/>
 

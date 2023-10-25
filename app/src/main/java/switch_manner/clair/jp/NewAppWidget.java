@@ -34,6 +34,7 @@ public class NewAppWidget extends AppWidgetProvider {
     }
 
     @Override
+
     public void onEnabled(Context context) {
         // Enter relevant functionality for when the first widget is created
     }
@@ -53,6 +54,6 @@ public class NewAppWidget extends AppWidgetProvider {
 
     private static PendingIntent clickAction(Context context) {
         Intent intent = new Intent("click_action");
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
     }
 }

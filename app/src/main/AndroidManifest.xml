@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".MyWidgetProvider" >
+        <receiver android:name=".MyWidgetProvider" android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -29,7 +29,8 @@
         <!--
         <receiver
             android:name=".MyWidgetIntentReceiver"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:exported="true">
             <intent-filter>
                 <action android:name="UPDATE_WIDGET" />
             </intent-filter>

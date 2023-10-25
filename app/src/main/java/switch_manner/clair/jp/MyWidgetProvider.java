@@ -35,7 +35,7 @@ public class MyWidgetProvider extends AppWidgetProvider {
 		//remoteViews.setOnClickPendingIntent(R.id.button, clickButton(context));
 		Intent intent = new Intent(context, MyWidgetProvider.class);
 
-		remoteViews.setOnClickPendingIntent(R.id.button, PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT));
+		remoteViews.setOnClickPendingIntent(R.id.button, PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_IMMUTABLE));
 
         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		//MyWidgetIntentReceiver.ringerMode = am.getRingerMode();
@@ -77,9 +77,9 @@ public class MyWidgetProvider extends AppWidgetProvider {
 //		Toast.makeText(context, "change", Toast.LENGTH_SHORT).show();
 
 		//intent.setAction("UPDATE_WIDGET");
-		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-//		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 	}
 
 	// アップデート

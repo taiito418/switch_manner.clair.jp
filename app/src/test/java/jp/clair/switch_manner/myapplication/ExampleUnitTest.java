@@ -1,4 +1,4 @@
-package switch_manner.clair.jp.myapplication;
+package jp.clair.switch_manner.myapplication;
 
 import org.junit.Test;
 
