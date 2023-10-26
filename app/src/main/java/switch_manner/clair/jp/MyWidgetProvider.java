@@ -26,16 +26,17 @@ public class MyWidgetProvider extends AppWidgetProvider {
 
 	public void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetIds) {
 
+		Log.d("start", "!!----ウィジェット更新----!!");
 		// ウィジェットレイアウトの初期化
 		remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
 
 		//val (intent, code) = createIntentAndRequestCode(context, appWidgetId, ClickType.TYPE1);
 
 		// ボタンイベントを登録
-		//remoteViews.setOnClickPendingIntent(R.id.button, clickButton(context));
+//		remoteViews.setOnClickPendingIntent(R.id.button, clickButton(context));
 		Intent intent = new Intent(context, MyWidgetProvider.class);
-
-		remoteViews.setOnClickPendingIntent(R.id.button, PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_IMMUTABLE));
+		intent.setAction("click_widget");
+		remoteViews.setOnClickPendingIntent(R.id.button, PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_MUTABLE));
 
         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		//MyWidgetIntentReceiver.ringerMode = am.getRingerMode();
@@ -77,9 +78,9 @@ public class MyWidgetProvider extends AppWidgetProvider {
 //		Toast.makeText(context, "change", Toast.LENGTH_SHORT).show();
 
 		//intent.setAction("UPDATE_WIDGET");
-		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE);
 
-//		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+//		return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE);
 	}
 
 	// アップデート
@@ -122,6 +123,11 @@ public class MyWidgetProvider extends AppWidgetProvider {
 			// Manifestファイルので指定したnameが取得できる
 			//Toast.makeText(context, "click", Toast.LENGTH_SHORT).show();
 			// Tapされた時の実行アクションをかく
+
+		Log.d("onRecived", "ブロードキャストが検知されました");
+		if(intent.getAction().equals("click_widget")) {
+			Log.d("MyWidgetProvider", "ボタンがクリックされました");
+		}
 
 			remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
 			AppWidgetManager manager = AppWidgetManager.getInstance(context);

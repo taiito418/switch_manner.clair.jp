@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -54,6 +55,6 @@ public class NewAppWidget extends AppWidgetProvider {
 
     private static PendingIntent clickAction(Context context) {
         Intent intent = new Intent("click_action");
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE);
     }
 }
